@@ -10,6 +10,25 @@ class Book {
 
 // UI Class: Handle UI Tasks
 
+class UI {
+    static displayBooks () {
+        const storedBooks [
+            {
+                title: 'Book One', 
+                author: 'John Doe',
+                isbn:'123456'
+            },
+            {
+                title: 'Book Two', 
+                author: 'Susan Doe',
+                isbn:'123789'
+            }
+
+        ];
+        const books = storedBooks;
+    }
+}
+
 // Store Class:  Handles Storage
 
 // Event: Display Books
