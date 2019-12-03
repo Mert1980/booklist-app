@@ -12,7 +12,7 @@ class Book {
 
 class UI {
     static displayBooks () {
-        const storedBooks [
+        const storedBooks = [
             {
                 title: 'Book One', 
                 author: 'John Doe',
