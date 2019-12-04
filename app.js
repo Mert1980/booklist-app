@@ -40,10 +40,10 @@ class UI {
         `;
     list.appendChild(row);
   }
-  static clearFields (){
-      document.getElementById('title').value = '';
-      document.getElementById('author').value = '';
-      document.getElementById('isbn').value = '';
+  static clearFields() {
+    document.getElementById("title").value = "";
+    document.getElementById("author").value = "";
+    document.getElementById("isbn").value = "";
   }
 }
 
