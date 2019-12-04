@@ -71,6 +71,7 @@ class Store {
     const books = Store.getBooks();
     books.push(book);
     localStorage.setItem("books", JSON.stringify(books));
+
     // we have to store the objects as a string in locak store!
   }
 
@@ -122,7 +123,11 @@ document.querySelector("#book-form").addEventListener("submit", e => {
 });
 // Event: Remove a book
 document.getElementById("book-list").addEventListener("click", e => {
+  // Remove book from UI
   UI.deleteBook(e.target);
+
+  // Remove book from local store
+  Store.removeBook(e.target.parentElement.previousElementSibling.textContent);
 
   // Show success message
   UI.showAlert("Book removed", "info");
