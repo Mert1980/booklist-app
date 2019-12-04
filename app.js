@@ -79,8 +79,12 @@ class Store {
     }
     return books;
   }
-
-  static addBook(book) {}
+  static addBook(book) {
+    const books = Store.getBooks();
+    books.push(book);
+    localStorage.setItem('books', JSON.stringify(books));
+    // we have to store the objects as a string in locak store!
+  }
 
   static removeBook(isbn) {}
 }
