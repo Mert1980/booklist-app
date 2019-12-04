@@ -52,10 +52,11 @@ class UI {
     div.style.font = 'bold';
     div.style.fontFamily = 'Arial, Helvetica, sans-serif';
     
-    console.log(div.textContent);
     const container = document.querySelector(".container");
     const form = document.getElementById("book-form");
     container.insertBefore(div, form); // inserts the 'div' before the 'form';
+
+    setTimeout (() => document.querySelector('.alert').remove(), 3000);
     
   }
   static clearFields() {
