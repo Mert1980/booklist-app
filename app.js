@@ -47,17 +47,17 @@ class UI {
     const div = document.createElement("div");
     div.className = `alert alert-${className}`; // bootstrap success or danger item will be passes as an argumen
     div.appendChild(document.createTextNode(message));
-    div.style.textAlign = 'center';
-    div.style.fontSize = '18px';
-    div.style.font = 'bold';
-    div.style.fontFamily = 'Arial, Helvetica, sans-serif';
-    
+    div.style.textAlign = "center";
+    div.style.fontSize = "18px";
+    div.style.font = "bold";
+    div.style.fontFamily = "Arial, Helvetica, sans-serif";
+
     const container = document.querySelector(".container");
     const form = document.getElementById("book-form");
     container.insertBefore(div, form); // inserts the 'div' before the 'form';
 
-    setTimeout (() => document.querySelector('.alert').remove(), 3000);
-    
+    // Vanish in 3 seconds
+    setTimeout(() => document.querySelector(".alert").remove(), 3000);
   }
   static clearFields() {
     document.getElementById("title").value = "";
@@ -75,7 +75,6 @@ document.addEventListener("DOMContentLoaded", UI.displayBooks);
 // Event: Add a book
 
 document.querySelector("#book-form").addEventListener("submit", e => {
-  
   // Prevent actual submit
   e.preventDefault();
 
@@ -86,15 +85,18 @@ document.querySelector("#book-form").addEventListener("submit", e => {
 
   // Validate
   if (title === "" || author === "" || isbn === "") {
-    UI.showAlert("Please fill all the fields", 'danger');
+    UI.showAlert("Please fill all the fields", "danger");
   } else {
-    // Instantiate book
+  // Instantiate book
     const book = new Book(title, author, isbn);
 
-    // Add book to the UI
+  // Add book to the UI
     UI.addBookToList(book);
 
-    // Clear fields
+  // Show success message
+    UI.showAlert("Book added", "success");
+
+  // Clear fields
     UI.clearFields();
   }
 });
