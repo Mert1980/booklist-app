@@ -51,4 +51,12 @@ document.addEventListener('DOMContentLoaded', UI.displayBooks);
 
 // Event: Add a book
 
+document.querySelector('#book-form').addEventListener('submit', (e) => {
+    // Get form values
+    const title = document.getElementById('#title').value;
+    const author = document.getElementById('#author').value;
+    const isbn = document.getElementById('#isbn').value;
+
+});
+
 // Event: Remove a book
