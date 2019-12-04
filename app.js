@@ -110,6 +110,9 @@ document.querySelector("#book-form").addEventListener("submit", e => {
     // Add book to the UI
     UI.addBookToList(book);
 
+    // Add book to store
+    Store.addBook(book);
+
     // Show success message
     UI.showAlert("Book added", "success");
 
