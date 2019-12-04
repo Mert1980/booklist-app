@@ -47,9 +47,16 @@ class UI {
     const div = document.createElement("div");
     div.className = `alert alert-${className}`; // bootstrap success or danger item will be passes as an argumen
     div.appendChild(document.createTextNode(message));
+    div.style.textAlign = 'center';
+    div.style.fontSize = '18px';
+    div.style.font = 'bold';
+    div.style.fontFamily = 'Arial, Helvetica, sans-serif';
+    
+    console.log(div.textContent);
     const container = document.querySelector(".container");
     const form = document.getElementById("book-form");
-    container.insertBefore(div, form); // inserts the 'div' before the 'form'
+    container.insertBefore(div, form); // inserts the 'div' before the 'form';
+    
   }
   static clearFields() {
     document.getElementById("title").value = "";
@@ -67,6 +74,7 @@ document.addEventListener("DOMContentLoaded", UI.displayBooks);
 // Event: Add a book
 
 document.querySelector("#book-form").addEventListener("submit", e => {
+  
   // Prevent actual submit
   e.preventDefault();
 
@@ -77,7 +85,7 @@ document.querySelector("#book-form").addEventListener("submit", e => {
 
   // Validate
   if (title === "" || author === "" || isbn === "") {
-    alert("Please fill all the fiels");
+    UI.showAlert("Please fill all the fields", 'danger');
   } else {
     // Instantiate book
     const book = new Book(title, author, isbn);
