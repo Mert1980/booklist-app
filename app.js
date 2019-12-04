@@ -87,21 +87,23 @@ document.querySelector("#book-form").addEventListener("submit", e => {
   if (title === "" || author === "" || isbn === "") {
     UI.showAlert("Please fill all the fields", "danger");
   } else {
-  // Instantiate book
+    // Instantiate book
     const book = new Book(title, author, isbn);
 
-  // Add book to the UI
+    // Add book to the UI
     UI.addBookToList(book);
 
-  // Show success message
+    // Show success message
     UI.showAlert("Book added", "success");
 
-  // Clear fields
+    // Clear fields
     UI.clearFields();
   }
 });
-
 // Event: Remove a book
 document.getElementById("book-list").addEventListener("click", e => {
   UI.deleteBook(e.target);
+
+// Show success message
+  UI.showAlert("Book removed", "info");
 });
