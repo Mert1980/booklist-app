@@ -51,10 +51,14 @@ document.addEventListener("DOMContentLoaded", UI.displayBooks);
 // Event: Add a book
 
 document.querySelector("#book-form").addEventListener("submit", e => {
+  // Prevent actual submit
+  e.preventDefault();
+
   // Get form values
-  const title = document.getElementById("#title").value;
-  const author = document.getElementById("#author").value;
-  const isbn = document.getElementById("#isbn").value;
+  debugger;
+  const title = document.getElementById('title').value;
+  const author = document.getElementById('author').value;
+  const isbn = document.getElementById('isbn').value;
 
   // Instantiate book
   const book = new Book(title, author, isbn);
