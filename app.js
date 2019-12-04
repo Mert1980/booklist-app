@@ -67,6 +67,23 @@ class UI {
 }
 
 // Store Class:  Handles Storage
+class Store {
+  static getBooks() {
+    let books;
+    if (localStorage.getItem("books") === null) {
+      books = [];
+    } else {
+      books = JSON.parse(localStorage.getItem("books"));
+      // Since books is stored as string, we parse it to a JSON object so that
+      // we can use it as a regular JavaScript array
+    }
+    return books;
+  }
+
+  static addBook(book) {}
+
+  static removeBook(isbn) {}
+}
 
 // Event: Display Books
 
@@ -104,6 +121,6 @@ document.querySelector("#book-form").addEventListener("submit", e => {
 document.getElementById("book-list").addEventListener("click", e => {
   UI.deleteBook(e.target);
 
-// Show success message
+  // Show success message
   UI.showAlert("Book removed", "info");
 });
