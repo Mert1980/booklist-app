@@ -55,14 +55,15 @@ document.querySelector("#book-form").addEventListener("submit", e => {
   e.preventDefault();
 
   // Get form values
-  debugger;
-  const title = document.getElementById('title').value;
-  const author = document.getElementById('author').value;
-  const isbn = document.getElementById('isbn').value;
+  const title = document.getElementById("title").value;
+  const author = document.getElementById("author").value;
+  const isbn = document.getElementById("isbn").value;
 
   // Instantiate book
   const book = new Book(title, author, isbn);
-  console.log(book);
+  
+  // Add book to the UI
+  UI.addBookToList(book);
 });
 
 // Event: Remove a book
